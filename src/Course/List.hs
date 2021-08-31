@@ -76,8 +76,8 @@ headOr ::
   a
   -> List a
   -> a
-headOr =
-  error "todo: Course.List#headOr"
+headOr m Nil = m
+headOr _ (x:.xs) = x
 
 -- | The product of the elements of a list.
 --
@@ -92,8 +92,8 @@ headOr =
 product ::
   List Int
   -> Int
-product =
-  error "todo: Course.List#product"
+product Nil = 1
+product (x:.xs) = x * product xs
 
 -- | Sum the elements of the list.
 --
