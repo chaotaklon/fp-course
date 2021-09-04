@@ -148,9 +148,10 @@ filter ::
   (a -> Bool)
   -> List a
   -> List a
-filter _ Nil = Nil
-filter f (x:.xs) = let t = filter f xs 
-                   in if f x then x :. t else t
+-- _ Nil = Nil
+--filter f (x:.xs) = let t = filter f xs 
+--                   in if f x then x :. t else t
+filter f = foldRight (\x la -> if f x then x:.la else la) Nil
 
 -- | Append two lists to a new list.
 --
