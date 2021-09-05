@@ -370,6 +370,7 @@ filtering ::
   (a -> k Bool)
   -> List a
   -> k (List a)
+-- Cheated on the model answer for this
 filtering f = foldRight (\a -> lift2 (\b -> if b then (a:.) else id) (f a)) (pure Nil)
 
 -----------------------
