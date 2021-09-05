@@ -152,6 +152,9 @@ filter ::
 --filter f (x:.xs) = let t = filter f xs 
 --                   in if f x then x :. t else t
 filter f = foldRight (\x la -> if f x then x:.la else la) Nil
+--filter f =
+--  foldRight (\a -> if f a then (a:.) else id) Nil
+
 
 -- | Append two lists to a new list.
 --
@@ -267,6 +270,11 @@ find ::
   -> Optional a
 find _ Nil = Empty
 find f (x:.xs) = if f x then Full x else find f xs
+
+--find p x =
+--  case filter p x of
+--    Nil -> Empty
+--    h:._ -> Full h
 
 -- | Determine if the length of the given list is greater than 4.
 --
